@@ -1,6 +1,6 @@
 
 [![NomadlistRubyGem](https://join.nomadlist.com/assets/logo.png)](http://nomadlist.com)
-[![Gem Version](http://img.shields.io/gem/v/bitters.svg?style=flat)](https://rubygems.org/gems/bitters)
+
 
 # A Simple Ruby Wrapper For Nomadlist
 
