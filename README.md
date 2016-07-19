@@ -31,10 +31,13 @@ To create a connection require 'nomadlist' in your code and add Nomadlist::City.
 Let's say you wanted to pull a bunch of data for Amsterdam.
 
 id = "amsterdam-netherlands"
+
 @place = Nomadlist::City.find(id).result[0]
 
 place.info.city.name = 'amsterdam'
+
 place.info.country.city.name = 'amsterdam'
+
 place.info.weather.type = 'Partly Cloudy'
 
 and much more!
