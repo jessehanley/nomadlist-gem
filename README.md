@@ -26,22 +26,36 @@ Or install it yourself as:
 
 ## Usage
 
-To create a connection require 'nomadlist' in your code and add Nomadlist::City.find(city_id).result[0] where city_id is the name followed by the country.
+To create a connection require 'nomadlist' in your code and add Nomadlist::City.find(city_id).result[0] where city_id is the name of the city followed by the country.
 
-Let's say you wanted to pull a bunch of data for Amsterdam.
+As an example, let's say I had a blog that I was building where I wanted to pull in some cool data about the cities I was visiting.
 
-id = "amsterdam-netherlands"
+On my post model I could add a column called city_id...
 
-@place = Nomadlist::City.find(id).result[0]
+    city_id = "amsterdam-netherlands"
 
-place.info.city.name = 'amsterdam'
+Now we can jump over to my posts controller and add...
 
-place.info.country.city.name = 'amsterdam'
+    require 'nomadlist'
 
-place.info.weather.type = 'Partly Cloudy'
+After that's done I can add the following to my show method...
+
+    def show
+        @post = Post.friendly.find(params[:id])
+        @place = Nomadlist::City.find("amsterdam-netherlands").result[0]
+    end
+
+Great! Now we've done that we can do the following commands
+
+    <%= @place.info.city.name %>  = 'amsterdam'
+
+    <%= @place.info.country.city.name %> = 'netherlands'
+
+    <%= @place.info.weather.type %> = 'Partly Cloudy'
 
 and much more!
 
+For a full list have a look through the raw JSON here: https://nomadlist.com/api/v2/list/cities/amsterdam-netherlands
 
 ## Contributing
 
